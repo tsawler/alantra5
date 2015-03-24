@@ -145,6 +145,11 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+        'Illuminate\Html\HtmlServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
+        'Jenssegers\Date\DateServiceProvider',
+        'Tsawler\Vcms5\Vcms5ServiceProvider',
+
 	],
 
 	/*
@@ -192,6 +197,11 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+        'Form'      => 'Illuminate\Html\FormFacade',
+        'Html'      => 'Illuminate\Html\HtmlFacade',
+        'Image'     => 'Intervention\Image\Facades\Image',
+        'Date'      => 'Jenssegers\Date\Date',
 
 	],
 

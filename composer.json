@@ -20,7 +20,8 @@
     "francodacosta/phmagick": "0.4.*@dev",
     "barryvdh/laravel-elfinder": "0.3.*",
     "jenssegers/date": "~2.0",
-    "tsawler/vcms5": "dev-master"
+    "tsawler/vcms5": "dev-master",
+    "filp/whoops": "~1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0",

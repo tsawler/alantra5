@@ -1,13 +1,13 @@
 <?php namespace App\Models;
 
-class AlantraPage extends \Tsawler\Vcms5\Page {
+class AlantraPage extends \Tsawler\Vcms5\models\Page {
 
     /**
      * @return mixed
      */
     public function images()
     {
-        return $this->hasMany('PageImage', 'page_id', 'id');
+        return $this->hasMany('App\Models\PageImage', 'page_id', 'id');
     }
 
 }

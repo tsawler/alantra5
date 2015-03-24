@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "48509863855279ff1e66eb2efc192a1d",
+    "hash": "4e08aa10a856336a914038c73fc571d8",
     "packages": [
         {
             "name": "Tsawler/Vcms5",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:tsawler/vcms5.git",
-                "reference": "bd96d3f90761c6f7a74f52541f106161336db9d7"
+                "reference": "b275e76a5b5b31b14c8da502f302d8135eeb2796"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tsawler/vcms5/zipball/bd96d3f90761c6f7a74f52541f106161336db9d7",
-                "reference": "bd96d3f90761c6f7a74f52541f106161336db9d7",
+                "url": "https://api.github.com/repos/tsawler/vcms5/zipball/b275e76a5b5b31b14c8da502f302d8135eeb2796",
+                "reference": "b275e76a5b5b31b14c8da502f302d8135eeb2796",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
                 "source": "https://github.com/tsawler/vcms5/tree/master",
                 "issues": "https://github.com/tsawler/vcms5/issues"
             },
-            "time": "2015-03-22 21:05:57"
+            "time": "2015-03-24 19:16:41"
         },
         {
             "name": "barryvdh/elfinder-builds",
@@ -419,6 +419,64 @@
                 "string"
             ],
             "time": "2014-12-20 21:24:13"
+        },
+        {
+            "name": "filp/whoops",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "dcce91553e2e056857f1ea844949e9a8a71b613d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/dcce91553e2e056857f1ea844949e9a8a71b613d",
+                "reference": "dcce91553e2e056857f1ea844949e9a8a71b613d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Whoops": "src/"
+                },
+                "classmap": [
+                    "src/deprecated"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php error handling for cool kids",
+            "homepage": "https://github.com/filp/whoops",
+            "keywords": [
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "silex-provider",
+                "whoops",
+                "zf2"
+            ],
+            "time": "2015-02-17 15:50:31"
         },
         {
             "name": "francodacosta/phmagick",

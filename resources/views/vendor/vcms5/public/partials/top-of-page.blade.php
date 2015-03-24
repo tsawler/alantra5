@@ -35,6 +35,13 @@
 
 <body>
 
+<body class="smoothscroll">
+
+<div id="wrapper">
+
+    @include('vcms.partials.top-nav')
+
+
 <div id="header-top" class="hidden-xs">
     <div class="container">
         <div class="top-bar">

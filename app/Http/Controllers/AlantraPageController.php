@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\PageImage;
+use Tsawler\Vcms5\models\Page;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Config;
 
 
 class AlantraPageController extends Controller {
@@ -229,7 +232,7 @@ class AlantraPageController extends Controller {
         $page_id = Input::get('id');
         if ($page_id > 0)
         {
-            $page = Page::find($page_id);
+            $page = AlantraPage::find($page_id);
         } else
         {
             $page = new Page;
@@ -249,9 +252,11 @@ class AlantraPageController extends Controller {
     public function postEditpage()
     {
         $page_id = Input::get('page_id');
+        $file = Input::file('image_name');
+
         if ($page_id > 0)
         {
-            $page = Page::find($page_id);
+            $page = AlantraPage::find($page_id);
         } else
         {
             $page = new Page;
@@ -278,10 +283,63 @@ class AlantraPageController extends Controller {
             $page->slug_es = Str::slug(trim(Input::get('page_title_es')));
         }
 
-        Cache::flush();
         $page->save();
+        $page_id = $page->id;
 
-        return Redirect::to('/admin/page/all-pages')->with('message', 'Page saved successfully');
+        // handle image, if any
+        if (Input::hasFile('image_name'))
+        {
+            $destinationPath = base_path() . '/public/page_images/';
+            $filename = $file->getClientOriginalName();
+            $upload_success = Input::file('image_name')->move($destinationPath, $filename);
+
+            if (!File::exists($destinationPath . "thumbs"))
+            {
+                File::makeDirectory($destinationPath . "thumbs");
+            }
+            $thumb_img = Image::make($destinationPath . $filename);
+            $height = $thumb_img->height();
+            $width = $thumb_img->width();
+
+//            if (($height < 350) || ($width < 1600))
+//            {
+//                File::delete($destinationPath . $filename);
+//
+//                return Redirect::to('/admin/page/page?id=' . $page_id)
+//                    ->with('error', 'Your image is too small. It must be at least '
+//                        . '1600 '
+//                        . ' pixels wide, and '
+//                        . '350 '
+//                        . ' pixels tall!');
+//            }
+
+            $thumb_img->fit(Config::get('vcms5.thumb_size'), Config::get('vcms5.thumb_size'))
+                ->save($destinationPath . "thumbs/" . $filename);
+            unset($thumb_img);
+            $img = Image::make($destinationPath . $filename);
+
+            $width = $img->width();
+            if (($width > 1600) || ($height > 350))
+            {
+                // this image is very large; we'll need to resize it.
+                $img = $img->fit(1600, 350);
+                $img->save();
+            }
+
+            if ($upload_success)
+            {
+                $item = new PageImage;
+                $item->page_id = $page_id;
+                $item->image_name = $filename;
+                $item->save();
+            }
+
+        }
+
+        if (Input::get('action') == 0)
+            return Redirect::to('/admin/page/all-pages')->with('message', 'Page saved successfully');
+        else
+            return Redirect::to('/admin/page/page?id=' . $page_id);
     }
 
     /**

@@ -27,7 +27,8 @@
                 {!! Form::model($page, array(
                 'role' => 'form',
                 'name' => 'bookform', 'id' => 'bookform',
-                'url' => 'admin/page/page'
+                'url' => 'admin/page/page',
+                'files' => 'true'
                 )
                 )
                 !!}
@@ -128,6 +129,27 @@
                     </div>
 
                     <div class="form-group">
+                        {!! Form::label('image_name', 'Page Images (header)', ['class' => 'control-label']) !!}
+                        <br>
+                        @if (sizeof($page->images) > 0)
+                            @foreach($page->images as $image)
+                                <img alt="image" class="img-thumbnail"
+                                     src="/page_images/thumbs/{!! $image->image_name !!}" />
+                                &nbsp;
+                                <a href="#!" onclick="confirmDeleteImage({{ $image->id }})">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            @endforeach
+                        @else
+                            <img class="img-thumbnail" src="http://placehold.it/140x100&text=No+Image">
+                        @endif
+                        <br><br>
+                        <div class="controls">
+                            {!! Form::file('image_name',['id' => 'image_name']) !!}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         {!! Form::label('active', 'Page active?', array('class' => 'control-label')); !!}
                         <div class="controls">
                             <div class="input-group">
@@ -170,6 +192,7 @@
                     <div class="form-group">
                         <div class="controls">
                             {!! Form::submit('Save', array('class' => 'btn btn-primary submit')) !!}
+                            <a class="btn btn-info" href="#!" onclick="saveContinue()">Save and Continue</a>
                             @if ($page_id > 0)
                                 <a class="btn btn-danger" href="#!" onclick='confirmDelete({!! $page_id !!})'>Delete this page</a>
                             @endif
@@ -177,7 +200,7 @@
                     </div>
                     <div>&nbsp;</div>
                     {!! Form::hidden('page_id', $page_id )!!}
-
+                    {!! Form::hidden('action', 0, ['id' => 'action'] ) !!}
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -194,6 +217,18 @@
                             window.location.href = '/admin/page/deletepage?id='+x;
                         }
                     });
+                }
+                function confirmDeleteImage(x){
+                    bootbox.confirm("Are you sure you want to delete this image?", function(result) {
+                        if (result==true)
+                        {
+                            window.location.href = '/admin/page/deletepageimage?pid={{ $page_id }}&id='+x;
+                        }
+                    });
+                }
+                function saveContinue(){
+                    $("#action").val(1);
+                    $("#bookform").submit();
                 }
                 $(document).ready(function () {
                     $("#bookform").validate({

@@ -4,6 +4,17 @@ Route::get('/', function(){
     return Redirect::to('/home');
 });
 
+Route:: group(array('middleware' => 'auth.pages'), function () // make sure admin
+{
+    Route::post('/page/savepage', 'AlantraPageController@savePage');
+    Route::get('/admin/page/all-pages', 'AlantraPageController@getAllPages');
+    Route::get('/admin/page/page', 'AlantraPageController@getEditpage');
+    Route::post('/admin/page/page', 'AlantraPageController@postEditpage');
+    Route::get('/admin/page/deletepage', 'AlantraPageController@getDeletePage');
+    Route::post('/page/savefragment', 'AlantraPageController@postSavefragment');
+    Route::get('/admin/page/deletepageimage', 'AlantraPageController@getDeletePageImage');
+});
+
 // here we wrap our package controllers in a namespace so we can call them directly
 Route::group(['namespace' => 'App\Http\Controllers'], function(){
 
@@ -61,16 +72,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function(){
                 Route::post('/menu/savemenuitem', '\Tsawler\Vcms5\controllers\VcmsMenuController@postSavemenuitem');
                 Route::post('/menu/deletemenuitem', '\Tsawler\Vcms5\controllers\VcmsMenuController@postDeletemenuitem');
                 Route::post('/menu/deleteddmenuitem', '\Tsawler\Vcms5\controllers\VcmsMenuController@postDeleteddmenuitem');
-            });
-
-            Route:: group(array('middleware' => 'auth.pages'), function () // make sure admin
-            {
-                // pages
-                Route::post('/page/savepage', '\Tsawler\Vcms5\controllers\VcmsPageController@savePage');
-                Route::get('/admin/page/all-pages', '\Tsawler\Vcms5\controllers\VcmsPageController@getAllPages');
-                Route::get('/admin/page/page', '\Tsawler\Vcms5\controllers\VcmsPageController@getEditpage');
-                Route::post('/admin/page/page', '\Tsawler\Vcms5\controllers\VcmsPageController@postEditpage');
-                Route::get('/admin/page/deletepage', '\Tsawler\Vcms5\controllers\VcmsPageController@getDeletePage');
             });
 
             Route:: group(array('middleware' => 'auth.events'), function () // make sure admin

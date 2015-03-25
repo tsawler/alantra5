@@ -16,7 +16,7 @@ class TestimonialController extends Controller {
     {
         $testimonials = Testimonial::orderby('company')->get();
 
-        return View::make('vcms::admin.testimonials-list-all')
+        return View::make('vcms5::admin.testimonials-list-all')
             ->with('testimonials', $testimonials)
             ->with('page_name', '');
     }
@@ -36,7 +36,7 @@ class TestimonialController extends Controller {
             $testimonial = new Testimonial;
         }
 
-        return View::make('vcms::admin.testimonials-edit-testimonial')
+        return View::make('vcms5::admin.testimonials-edit-testimonial')
             ->with('testimonial_id', Input::get('id'))
             ->with('testimonial', $testimonial);
     }

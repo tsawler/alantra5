@@ -25,21 +25,22 @@ class Kernel extends HttpKernel {
      * @var array
      */
     protected $routeMiddleware = [
-        'auth'           => 'App\Http\Middleware\Authenticate',
-        'auth.basic'     => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-        'guest'          => 'App\Http\Middleware\RedirectIfAuthenticated',
-        'auth.admin'     => 'Tsawler\Vcms5\Middleware\RedirectIfNotAdminMiddleware',
-        'auth.pages'     => 'Tsawler\Vcms5\Middleware\RedirectIfNotPagesAdminMiddleware',
-        'auth.blogs'     => 'Tsawler\Vcms5\Middleware\RedirectIfNotBlogsAdminMiddleware',
-        'auth.events'    => 'Tsawler\Vcms5\Middleware\RedirectIfNotEventsAdminMiddleware',
-        'auth.news'      => 'Tsawler\Vcms5\Middleware\RedirectIfNotNewsAdminMiddleware',
-        'auth.faqs'      => 'Tsawler\Vcms5\Middleware\RedirectIfNotFaqsAdminMiddleware',
-        'auth.galleries' => 'Tsawler\Vcms5\Middleware\RedirectIfNotGalleriesAdminMiddleware',
-        'auth.menus'     => 'Tsawler\Vcms5\Middleware\RedirectIfNotMenusAdminMiddleware',
-        'auth.users'     => 'Tsawler\Vcms5\Middleware\RedirectIfNotUsersAdminMiddleware',
-        'auth.products'  => 'App\Http\Middleware\RedirectIfNotProductsMiddleware',
-        'auth.quotes'    => 'App\Http\Middleware\RedirectIfNotQuotesMiddleware',
-        'auth.contacts'  => 'App\Http\Middleware\RedirectIfNotContactsMiddleware',
+        'auth'              => 'App\Http\Middleware\Authenticate',
+        'auth.basic'        => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+        'guest'             => 'App\Http\Middleware\RedirectIfAuthenticated',
+        'auth.admin'        => 'Tsawler\Vcms5\Middleware\RedirectIfNotAdminMiddleware',
+        'auth.pages'        => 'Tsawler\Vcms5\Middleware\RedirectIfNotPagesAdminMiddleware',
+        'auth.blogs'        => 'Tsawler\Vcms5\Middleware\RedirectIfNotBlogsAdminMiddleware',
+        'auth.events'       => 'Tsawler\Vcms5\Middleware\RedirectIfNotEventsAdminMiddleware',
+        'auth.news'         => 'Tsawler\Vcms5\Middleware\RedirectIfNotNewsAdminMiddleware',
+        'auth.faqs'         => 'Tsawler\Vcms5\Middleware\RedirectIfNotFaqsAdminMiddleware',
+        'auth.galleries'    => 'Tsawler\Vcms5\Middleware\RedirectIfNotGalleriesAdminMiddleware',
+        'auth.menus'        => 'Tsawler\Vcms5\Middleware\RedirectIfNotMenusAdminMiddleware',
+        'auth.users'        => 'Tsawler\Vcms5\Middleware\RedirectIfNotUsersAdminMiddleware',
+        'auth.products'     => 'App\Http\Middleware\RedirectIfNotProductsMiddleware',
+        'auth.quotes'       => 'App\Http\Middleware\RedirectIfNotQuotesMiddleware',
+        'auth.contacts'     => 'App\Http\Middleware\RedirectIfNotContactsMiddleware',
+        'auth.testimonials' => 'App\Http\Middleware\RedirectIfNotTestimonialsMiddleware',
     ];
 
 }

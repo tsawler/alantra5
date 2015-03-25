@@ -39,6 +39,15 @@ Route::group(array('before' => 'auth.contacts'), function ()
     Route::get('/admin/contacts/deletecontact', 'ContactController@deleteContactForAdmin');
 });
 
+// testimonials
+Route::group(array('before' => 'auth.testimonials'), function ()
+{
+    Route::get('/admin/testimonials/all-testimonials', 'TestimonialController@getAllTestimonials');
+    Route::get('/admin/testimonials/testimonial', 'TestimonialController@getEditTestimonial');
+    Route::post('/admin/testimonials/testimonial', 'TestimonialController@postEditTestimonial');
+    Route::get('/admin/testimonials/deletetestimonial', 'TestimonialController@getDeleteTestimonial');
+});
+
 // here we wrap our package controllers in a namespace so we can call them directly
 Route::group(['namespace' => 'App\Http\Controllers'], function(){
 

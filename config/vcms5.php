@@ -13,7 +13,7 @@ return array(
 
     // general options
     'use_fr'                    => true,
-    'use_es'                    => true,
+    'use_es'                    => false,
     'use_routes'                => false,
 
     // image size mins

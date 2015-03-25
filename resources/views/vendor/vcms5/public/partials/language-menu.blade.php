@@ -14,13 +14,14 @@
                 FR
             @endif
         </a>
-
-        <a class='btn btn-xs btn-outline' href="/changelanguage?lang=es&amp;url={!! URL::current() !!}" style="color: black;">
-            @if (Session::get('lang') == 'es')
-                <span class="text-danger">ES</span>
-            @else
-                ES
-            @endif
-        </a>
+        @if (Config::get('vcms5::vcms5.use_spanish'))
+            <a class='btn btn-xs btn-outline' href="/changelanguage?lang=es&amp;url={!! URL::current() !!}" style="color: black;">
+                @if (Session::get('lang') == 'es')
+                    <span class="text-danger">ES</span>
+                @else
+                    ES
+                @endif
+            </a>
+        @endif
 
 @endif

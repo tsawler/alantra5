@@ -52,6 +52,30 @@
 
 <div id="wrapper">
 
+    <!-- Top Bar -->
+    <header id="topBar">
+        <div class="container">
+
+            <div class="pull-right fsize13 margin-top10 hide_mobile">
+                <!-- mail , phone -->
+                <a href="mailto:info@alantraleasing.com">info@alantraleasing.com</a> &bull; 800-456-1800
+                @include('vcms5::public.partials.language-menu')
+                <div class="block text-right"><!-- social -->
+                    <a href="https://twitter.com/AlantraLeasing" target="_blank"  class="social fa fa-twitter"></a>
+                    <a href="https://www.facebook.com/alantratrailers" target="_blank"  class="social fa fa-facebook"></a>
+                    <a href="https://www.linkedin.com/company/5065231" target="_blank" class="social fa fa-linkedin"></a>
+                </div><!-- /social -->
+            </div>
+
+            <!-- Logo -->
+            <a class="logo" href="/">
+                <img src="/assets/images/alantra-logo.png" height="75" alt="" />
+            </a>
+
+        </div><!-- /.container -->
+    </header>
+    <!-- /Top Bar -->
+
 @include('vcms5::public.partials.top-menu')
 
     <!-- PAGE TOP -->
@@ -61,7 +85,7 @@
             <header>
 
                 <ul class="breadcrumb pull-right"><!-- breadcrumb -->
-                    <li><a href="/">{{ Lang::get('vcms::menu.home') }}</a> </li>
+                    <li><a href="/">{{ Lang::get('vcms5::vcms5.home') }}</a> </li>
                     @yield('breadcrumb')
                 </ul><!-- /breadcrumb -->
 

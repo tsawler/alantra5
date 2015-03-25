@@ -37,6 +37,7 @@ class Kernel extends HttpKernel {
         'auth.galleries' => 'Tsawler\Vcms5\Middleware\RedirectIfNotGalleriesAdminMiddleware',
         'auth.menus'     => 'Tsawler\Vcms5\Middleware\RedirectIfNotMenusAdminMiddleware',
         'auth.users'     => 'Tsawler\Vcms5\Middleware\RedirectIfNotUsersAdminMiddleware',
+        'auth.products'     => 'App\Http\Middleware\RedirectIfNotProductsMiddleware',
     ];
 
 }

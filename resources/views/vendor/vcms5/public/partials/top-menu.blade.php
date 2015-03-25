@@ -1,17 +1,19 @@
-<div class="navbar navbar-default navbar-static-top yamm sticky" role="navigation">
+<header id="topNav">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/"><!-- <img src="img/logo.png" alt=""> --></a>
-        </div>
+        <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+            <i class="fa fa-bars"></i>
+        </button>
 
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
+        <!-- Search -->
+        {!! Form::open(array('url' => '/search', 'method' => 'post', 'class' => 'search')) !!}
+        {!! Form::text('q', null, array('class' => 'form-control', 'placeholder' => 'Search...')) !!}
+        <button class="fa fa-search"></button>
+        {!! Form::close() !!}
+        <!-- /Search -->
+
+        <div class="navbar-collapse nav-main-collapse collapse">
+            <nav class="nav-main">
+                <ul id="topMain" class="nav nav-pills nav-main">
 
                 @if((Auth::check()) && (Auth::user()->access_level == 3))
                     @foreach((Tsawler\Vcms5\models\MenuItem::where('menu_id','=','1')
@@ -273,26 +275,11 @@
                                         </li>
                                     @endif
 
-                                    <li class="dropdown " data-animate="animated fadeInUp" style="z-index:500;">
-                                        <a href="#" class="dropdown-toggle " data-toggle="dropdown"><i class="fa fa-search"></i></a>
-                                        <ul class="dropdown-menu search-dropdown animated fadeInUp">
-                                            <li id="dropdownForm">
-                                                <div class="dropdown-form">
-                                                    {!! Form::open(array('url' => '/search', 'class' => 'form-inline', 'method' => 'post')) !!}
-                                                    <div class="input-group">
-                                                        {!! Form::text('q', null, array('class' => 'form-control', 'placeholder' => 'search...')) !!}
-                                                            <span class="input-group-btn">
-                                                                <input type="submit" class="btn btn-theme-bg" value="Go!">
-                                                            </span>
-                                                    </div>
-                                                    {!! Form::close() !!}
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
+
 
             </ul>
+            </nav>
 
         </div>
     </div>
-</div>
+</header>

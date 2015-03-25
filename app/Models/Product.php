@@ -19,7 +19,7 @@ class Product extends Model {
      */
     public function category()
     {
-        return $this->hasOne('ProductCategory', 'id', 'category_id');
+        return $this->hasOne('App\Models\ProductCategory', 'id', 'category_id');
     }
 
 
@@ -28,7 +28,7 @@ class Product extends Model {
      */
     public function images()
     {
-        return $this->hasMany('ProductImage', 'product_id', 'id');
+        return $this->hasMany('App\Models\ProductImage', 'product_id', 'id');
     }
 
 
@@ -37,7 +37,7 @@ class Product extends Model {
      */
     public function drawings()
     {
-        return $this->hasMany('ProductDrawing', 'product_id', 'id');
+        return $this->hasMany('App\Models\ProductDrawing', 'product_id', 'id');
     }
 
 }

@@ -96,7 +96,7 @@ class ProductsController extends Controller {
             $product = new Product;
         }
 
-        return View::make('vcms5.admin.products-edit-product')
+        return View::make('vcms5::admin.products-edit-product')
             ->with('product_id', Input::get('id'))
             ->with('product', $product);
     }

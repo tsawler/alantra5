@@ -3,5 +3,6 @@
 .env
 .idea
 public/page_images
+public/product_images
 public/product_drawings
-
+public/vendor/vcms5/assets/avatars

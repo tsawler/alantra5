@@ -25,6 +25,13 @@ Route:: group(array('middleware' => 'auth.products'), function () // make sure a
     Route::get('/admin/products/deleteproductdrawing', 'ProductsController@getDeleteProductDrawing');
 });
 
+Route::group(array('before' => 'auth.quotes'), function ()
+{
+    Route::get('/admin/quotes/all-quotes', 'QuoteController@getAllQuotes');
+    Route::get('/admin/quotes/quote', 'QuoteController@getQuoteForAdmin');
+    Route::get('/admin/quotes/deletequote', 'QuoteController@deleteQuoteForAdmin');
+});
+
 // here we wrap our package controllers in a namespace so we can call them directly
 Route::group(['namespace' => 'App\Http\Controllers'], function(){
 

@@ -90,7 +90,7 @@
                                         @else
                                             {!! $item->menu_text !!}
                                         @endif
-                                        <span class="caret"></span>
+                                        
                                     </a>
                             @else
                                 <li class="dropdown">
@@ -259,7 +259,6 @@
                                            class="dropdown-toggle"
                                            data-toggle="dropdown" role="button" aria-expanded="false">
                                             <i class="fa fa-wrench"></i>
-                                            <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="/admin/dashboard">Dashboard</a></li>

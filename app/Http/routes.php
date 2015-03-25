@@ -1,9 +1,8 @@
 <?php
 
-Route::get('/', function(){
-    return Redirect::to('/home');
-});
+Route::get('/', 'AlantraPageController@showHome');
 
+// pages
 Route:: group(array('middleware' => 'auth.pages'), function () // make sure admin
 {
     Route::post('/page/savepage', 'AlantraPageController@savePage');
@@ -15,6 +14,7 @@ Route:: group(array('middleware' => 'auth.pages'), function () // make sure admi
     Route::get('/admin/page/deletepageimage', 'AlantraPageController@getDeletePageImage');
 });
 
+// products
 Route:: group(array('middleware' => 'auth.products'), function () // make sure admin
 {
     Route::get('/admin/products/all-products', 'ProductsController@getAllProducts');
@@ -25,6 +25,7 @@ Route:: group(array('middleware' => 'auth.products'), function () // make sure a
     Route::get('/admin/products/deleteproductdrawing', 'ProductsController@getDeleteProductDrawing');
 });
 
+// quotes
 Route::group(array('before' => 'auth.quotes'), function ()
 {
     Route::get('/admin/quotes/all-quotes', 'QuoteController@getAllQuotes');
@@ -32,6 +33,7 @@ Route::group(array('before' => 'auth.quotes'), function ()
     Route::get('/admin/quotes/deletequote', 'QuoteController@deleteQuoteForAdmin');
 });
 
+// contacts
 Route::group(array('before' => 'auth.contacts'), function ()
 {
     Route::get('/admin/contacts/list-all-website-contacts', 'ContactController@getAllWebsiteContacts');
@@ -103,8 +105,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function(){
                 Route::get('/menu/sortitems', '\Tsawler\Vcms5\controllers\VcmsMenuController@getSortitems');
                 Route::post('/menu/saveddmenuitem', '\Tsawler\Vcms5\controllers\VcmsMenuController@postSaveddmenuitem');
                 Route::post('/menu/savemenuitem', '\Tsawler\Vcms5\controllers\VcmsMenuController@postSavemenuitem');
-                Route::post('/menu/deletemenuitem', '\Tsawler\Vcms5\controllers\VcmsMenuController@postDeletemenuitem');
-                Route::post('/menu/deleteddmenuitem', '\Tsawler\Vcms5\controllers\VcmsMenuController@postDeleteddmenuitem');
+                Route::post('/admin/deletemenuitem', '\Tsawler\Vcms5\controllers\VcmsMenuController@postDeletemenuitem');
+                Route::post('/admin/deleteddmenuitem', '\Tsawler\Vcms5\controllers\VcmsMenuController@postDeleteddmenuitem');
             });
 
             Route:: group(array('middleware' => 'auth.events'), function () // make sure admin

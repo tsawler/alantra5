@@ -79,7 +79,7 @@ class AlantraPageController extends Controller {
 
         $testimonials = Testimonial::orderByRaw("RANDOM()")->take(3)->get();
 
-        return View::make('vcms5::home')
+        return View::make('home')
             ->with('page_title', $page_title)
             ->with('page_content', $page_content)
             ->with('meta', $meta)
@@ -143,7 +143,8 @@ class AlantraPageController extends Controller {
                     $page->page_content = trim(Input::get('thedata'));
                     $page->page_title = trim(Input::get('thetitledata'));
                     $page->slug = Str::slug(Input::get('thetitledata'));
-                } else {
+                } else
+                {
                     return Session::get('lang') . " is an invalid language";
                 }
 
@@ -296,49 +297,62 @@ class AlantraPageController extends Controller {
         // handle image, if any
         if (Input::hasFile('image_name'))
         {
-            $destinationPath = base_path() . '/public/page_images/';
-            $filename = $file->getClientOriginalName();
-            $upload_success = Input::file('image_name')->move($destinationPath, $filename);
-
-            if (!File::exists($destinationPath . "thumbs"))
+            try
             {
-                File::makeDirectory($destinationPath . "thumbs");
-            }
-            $thumb_img = Image::make($destinationPath . $filename);
-            $height = $thumb_img->height();
-            $width = $thumb_img->width();
+                $destinationPath = base_path() . '/public/page_images/';
+                $filename = $file->getClientOriginalName();
+                if (Request::file('photo')->isValid())
+                {
+                    $upload_success = Input::file('image_name')->move($destinationPath, $filename);
 
-//            if (($height < 350) || ($width < 1600))
-//            {
-//                File::delete($destinationPath . $filename);
-//
-//                return Redirect::to('/admin/page/page?id=' . $page_id)
-//                    ->with('error', 'Your image is too small. It must be at least '
-//                        . '1600 '
-//                        . ' pixels wide, and '
-//                        . '350 '
-//                        . ' pixels tall!');
-//            }
+                    if (!File::exists($destinationPath . "thumbs"))
+                    {
+                        File::makeDirectory($destinationPath . "thumbs");
+                    }
+                    $thumb_img = Image::make($destinationPath . $filename);
+                    $height = $thumb_img->height();
+                    $width = $thumb_img->width();
 
-            $thumb_img->fit(Config::get('vcms5.thumb_size'), Config::get('vcms5.thumb_size'))
-                ->save($destinationPath . "thumbs/" . $filename);
-            unset($thumb_img);
-            $img = Image::make($destinationPath . $filename);
+                    if (($height < 350) || ($width < 1600))
+                    {
+                        File::delete($destinationPath . $filename);
 
-            $width = $img->width();
-            if (($width > 1600) || ($height > 350))
+                        return Redirect::to('/admin/page/page?id=' . $page_id)
+                            ->with('error', 'Your image is too small. It must be at least '
+                                . '1600 '
+                                . ' pixels wide, and '
+                                . '350 '
+                                . ' pixels tall!');
+                        exit;
+                    }
+
+                    $thumb_img->fit(Config::get('vcms5.thumb_size'), Config::get('vcms5.thumb_size'))
+                        ->save($destinationPath . "thumbs/" . $filename);
+                    unset($thumb_img);
+                    $img = Image::make($destinationPath . $filename);
+
+                    $width = $img->width();
+                    if (($width > 1600) || ($height > 350))
+                    {
+                        // this image is very large; we'll need to resize it.
+                        $img = $img->fit(1600, 350);
+                        $img->save();
+                    }
+
+                    $item = new PageImage;
+                    $item->page_id = $page_id;
+                    $item->image_name = $filename;
+                    $item->save();
+                } else
+                {
+                    return Redirect::to('/admin/page/page?id=' . $page_id)
+                        ->with('error', 'The image is in an unknown format');
+                    exit;
+                }
+
+            } catch (Exception $e)
             {
-                // this image is very large; we'll need to resize it.
-                $img = $img->fit(1600, 350);
-                $img->save();
-            }
-
-            if ($upload_success)
-            {
-                $item = new PageImage;
-                $item->page_id = $page_id;
-                $item->image_name = $filename;
-                $item->save();
+                dd($e);
             }
 
         }

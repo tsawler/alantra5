@@ -217,21 +217,6 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('electric_heat', 'Electric Heat?', array('class' => 'control-label')); !!}
-                        <div class="controls">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-question"></i></span>
-                                {!! Form::select('electric_heat', array(
-                                        '1' => 'Yes',
-                                        '0' => 'No'),
-                                        null,
-                                        array('class' => 'form-control',
-                                            'style' => 'max-width: 400px;')) !!}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         {!! Form::label('communications_panel', 'Communications Panel?', array('class' => 'control-label')); !!}
                         <div class="controls">
                             <div class="input-group">

@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:tsawler/vcms5.git",
-                "reference": "b275e76a5b5b31b14c8da502f302d8135eeb2796"
+                "reference": "c2c574f31c5b23defa4cb435f867864e58e2debb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tsawler/vcms5/zipball/b275e76a5b5b31b14c8da502f302d8135eeb2796",
-                "reference": "b275e76a5b5b31b14c8da502f302d8135eeb2796",
+                "url": "https://api.github.com/repos/tsawler/vcms5/zipball/c2c574f31c5b23defa4cb435f867864e58e2debb",
+                "reference": "c2c574f31c5b23defa4cb435f867864e58e2debb",
                 "shasum": ""
             },
             "require": {
@@ -43,7 +43,7 @@
                 "source": "https://github.com/tsawler/vcms5/tree/master",
                 "issues": "https://github.com/tsawler/vcms5/issues"
             },
-            "time": "2015-03-24 19:16:41"
+            "time": "2015-03-25 21:08:58"
         },
         {
             "name": "barryvdh/elfinder-builds",
@@ -1240,16 +1240,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "edbf162e4cf116102d95eb635608b7d310cc01c6"
+                "reference": "dba7524b3724f25b947cd26a580787c55c8a6f9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/edbf162e4cf116102d95eb635608b7d310cc01c6",
-                "reference": "edbf162e4cf116102d95eb635608b7d310cc01c6",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/dba7524b3724f25b947cd26a580787c55c8a6f9b",
+                "reference": "dba7524b3724f25b947cd26a580787c55c8a6f9b",
                 "shasum": ""
             },
             "require": {
@@ -1281,7 +1281,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2015-03-22 16:17:25"
+            "time": "2015-03-24 19:10:28"
         },
         {
             "name": "psr/log",

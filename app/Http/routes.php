@@ -32,6 +32,13 @@ Route::group(array('before' => 'auth.quotes'), function ()
     Route::get('/admin/quotes/deletequote', 'QuoteController@deleteQuoteForAdmin');
 });
 
+Route::group(array('before' => 'auth.contacts'), function ()
+{
+    Route::get('/admin/contacts/list-all-website-contacts', 'ContactController@getAllWebsiteContacts');
+    Route::get('/admin/contacts/contact', 'ContactController@getContactForAdmin');
+    Route::get('/admin/contacts/deletecontact', 'ContactController@deleteContactForAdmin');
+});
+
 // here we wrap our package controllers in a namespace so we can call them directly
 Route::group(['namespace' => 'App\Http\Controllers'], function(){
 

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+use App\Models\ProductDrawing;
 
 /**
  * Class ProductsController

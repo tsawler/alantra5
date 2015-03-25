@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration {
             $table->text('description_fr')->nullable();
             $table->timestamps();
             $table->integer('active');
+            $table->string('slug')->nullable();
             $table->integer('electric_heat')->default(0);
             $table->integer('communications_panel')->default(0);
             $table->integer('ac')->default(0);

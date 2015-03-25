@@ -39,7 +39,7 @@
                         <li role="presentation" class="active">
                             <a href="#english" aria-controls="english" role="tab" data-toggle="tab">English</a>
                         </li>
-                        @if (Config::get('vcms::use_french'))
+                        @if (Config::get('vcms5.use_fr'))
                             <li role="presentation">
                                 <a href="#french" aria-controls="french" role="tab" data-toggle="tab">French</a>
                             </li>
@@ -70,10 +70,10 @@
                             </div>
                         </div>
 
-                        @if (Config::get('vcms::use_french'))
+                        @if (Config::get('vcms5.use_fr'))
                             <div role="tabpanel" class="tab-pane fade" id="french">
                                 <br>
-                                @if (Config::get('vcms::use_french'))
+                                @if (Config::get('vcms5.use_fr'))
                                     <div class="form-group">
                                         {!! Form::label('title_fr', 'Title (French)', array('class' => 'control-label')); !!}
                                         <div class="controls">
@@ -692,7 +692,7 @@
                                 enterMode : '1'
                             });
 
-                    @if (Config::get('vcms::use_french'))
+                    @if (Config::get('vcms5.use_fr'))
                     CKEDITOR.replace( 'description_fr',
                             {
                                 toolbar : 'MyToolbar',

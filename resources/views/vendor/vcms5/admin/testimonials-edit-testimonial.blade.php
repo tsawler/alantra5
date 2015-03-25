@@ -95,7 +95,7 @@
 
                         <div role="tabpanel" class="tab-pane fade" id="french">
                             <br>
-                            @if (Config::get('vcms::use_french'))
+                            @if (Config::get('vcms5.use_fr'))
                                 <div class="form-group">
                                     {!! Form::label('testimonial_fr', 'Testimonial (French)', array('class' => 'control-label')); !!}
                                     <div class="controls">
@@ -161,7 +161,7 @@
                                 enterMode : '1'
                             });
 
-                    @if (Config::get('vcms::use_french'))
+                    @if (Config::get('vcms5.use_fr'))
                     CKEDITOR.replace( 'testimonial_fr',
                             {
                                 toolbar : 'MyToolbar',

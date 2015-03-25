@@ -2,3 +2,6 @@
 /node_modules
 .env
 .idea
+public/page_images
+public/product_drawings
+

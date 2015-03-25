@@ -15,6 +15,16 @@ Route:: group(array('middleware' => 'auth.pages'), function () // make sure admi
     Route::get('/admin/page/deletepageimage', 'AlantraPageController@getDeletePageImage');
 });
 
+Route:: group(array('middleware' => 'auth.products'), function () // make sure admin
+{
+    Route::get('/admin/products/all-products', 'ProductsController@getAllProducts');
+    Route::get('/admin/products/product', 'ProductsController@getEditproduct');
+    Route::post('/admin/products/product', 'ProductsController@postEditproduct');
+    Route::get('/admin/products/deleteproduct', 'ProductsController@getDeleteproduct');
+    Route::get('/admin/products/deleteproductimage', 'ProductsController@getDeleteProductImage');
+    Route::get('/admin/products/deleteproductdrawing', 'ProductsController@getDeleteProductDrawing');
+});
+
 // here we wrap our package controllers in a namespace so we can call them directly
 Route::group(['namespace' => 'App\Http\Controllers'], function(){
 

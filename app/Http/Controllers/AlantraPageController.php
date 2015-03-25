@@ -1,25 +1,32 @@
 <?php namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use App\Models\AlantraPage;
-use App\Models\Testimonial;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Redirect;
 use App\Models\PageImage;
-use Tsawler\Vcms5\models\Page;
-use Intervention\Image\Facades\Image;
+use App\Models\Testimonial;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
+use Tsawler\Vcms5\models\Page;
 
 
+/**
+ * Class AlantraPageController
+ * @package App\Http\Controllers
+ */
 class AlantraPageController extends Controller {
 
+    /**
+     *
+     */
     public function __construct()
     {
 

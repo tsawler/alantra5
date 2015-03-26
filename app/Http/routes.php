@@ -98,7 +98,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function(){
             Route:: group(array('middleware' => 'auth.menus'), function () // make sure admin
             {
                 // page (ajax, inline)
-                Route::post('/page/savefragment', '\Tsawler\Vcms5\VcmsFragmentController@postSavefragment');
+                Route::post('/page/savefragment', '\Tsawler\Vcms5\VcmsFragmentsController@postSavefragment');
                 // menus
                 Route::get('/menu/menujson', '\Tsawler\Vcms5\controllers\VcmsMenuController@getMenujson');
                 Route::get('/menu/ddmenujson', '\Tsawler\Vcms5\controllers\VcmsMenuController@getDdmenujson');

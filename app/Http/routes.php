@@ -10,7 +10,6 @@ Route:: group(array('middleware' => 'auth.pages'), function () // make sure admi
     Route::get('/admin/page/page', 'AlantraPageController@getEditpage');
     Route::post('/admin/page/page', 'AlantraPageController@postEditpage');
     Route::get('/admin/page/deletepage', 'AlantraPageController@getDeletePage');
-    Route::post('/page/savefragment', 'AlantraPageController@postSavefragment');
     Route::get('/admin/page/deletepageimage', 'AlantraPageController@getDeletePageImage');
 });
 
@@ -98,6 +97,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function(){
 
             Route:: group(array('middleware' => 'auth.menus'), function () // make sure admin
             {
+                // page (ajax, inline)
+                Route::post('/page/savefragment', '\Tsawler\Vcms5\VcmsFragmentController@postSavefragment');
                 // menus
                 Route::get('/menu/menujson', '\Tsawler\Vcms5\controllers\VcmsMenuController@getMenujson');
                 Route::get('/menu/ddmenujson', '\Tsawler\Vcms5\controllers\VcmsMenuController@getDdmenujson');

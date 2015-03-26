@@ -301,7 +301,7 @@ class AlantraPageController extends Controller {
             {
                 $destinationPath = base_path() . '/public/page_images/';
                 $filename = $file->getClientOriginalName();
-                if (Request::file('photo')->isValid())
+                if (Request::file('image_name')->isValid())
                 {
                     $upload_success = Input::file('image_name')->move($destinationPath, $filename);
 

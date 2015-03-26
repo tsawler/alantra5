@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Tsawler\Vcms5\VcmsAdminController;
 
+/**
+ * Class AlantraAdminController
+ * @package App\Http\Controllers
+ */
 class AlantraAdminController extends VcmsAdminController {
 
     /**

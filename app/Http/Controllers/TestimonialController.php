@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
+/**
+ * Class TestimonialController
+ * @package App\Http\Controllers
+ */
 class TestimonialController extends Controller {
 
     /**

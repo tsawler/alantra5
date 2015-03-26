@@ -589,7 +589,8 @@ ul.star-rated,
 ul.list-style-none {
 	clear:both;
 	display:inline-block;
-	margin:; padding:0;
+	margin:0;
+    padding:0;
 	list-style:none;
 }
 
@@ -1752,7 +1753,7 @@ div.tabs div.tab-content.transparent {
 }
 .panel-light>.panel-heading {
 	padding: 11px 15px;
-	background:transaprent;
+	background: transparent;
 	border-bottom:rgba(0,0,0,0.1) 1px solid;
 }
 
@@ -2086,7 +2087,7 @@ div.featured-box.nobg.border-only i.fa {
 	.circle-yes {
 		padding:10px;
 		border:transparent 1px solid;
-		display:inner-block;
+		display: inline-block;
 
 		-webkit-border-radius: 50%;
 		   -moz-border-radius: 50%;
@@ -2701,7 +2702,7 @@ div.mega-price-table h4 {
 	padding:20px 0; margin:0;
 	font-weight:400;
 	color:#666;
-	height:85;
+	height: 85px;
 	background-color:rgba(0,0,0,0.03);
 }
 div.mega-price-table .pricing:hover h4 {

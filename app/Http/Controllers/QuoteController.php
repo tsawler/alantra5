@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Quote;
 
+/**
+ * Class QuoteController
+ * @package App\Http\Controllers
+ */
 class QuoteController extends Controller {
 
     /**

@@ -4,6 +4,10 @@
     @include('vcms5::public.partials.edit-region')
 @stop
 
+@section('browser-title')
+    {!! $page_title !!}
+@stop
+
 
 @section('breadcrumb')
     <li>{!! $page_title !!} </li>
